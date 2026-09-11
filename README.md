@@ -37,13 +37,13 @@ backend/
 	src/utils/         Small pieces of request/data normalization
 	test/              Node test runner checks for backend behavior
 frontend/
-	src/components/    Tables, forms, feedback, and detail views
-	src/hooks/         Catalog loading and mutation state
-	src/pages/         Page-specific code can be added here as the app grows
-	src/services/      HTTP client used by the React components
+	src/App.jsx        Main catalog screen and its small local UI helpers
+	src/services/      HTTP client used by the React screen
+	src/main.jsx       React entry point
+	src/styles.css     Application styles
 ```
 
-The frontend keeps API calls in `services/api.js` and catalog state in `hooks/useCatalog.js`. The backend keeps relationship rules close to the controller that owns them; for example, a category with products cannot be deleted accidentally.
+The frontend is intentionally small for this assessment: API calls stay in `services/api.js`, while the screen state and nearby table/form views stay together in `App.jsx`. The backend keeps relationship rules close to the controller that owns them; for example, a category with products cannot be deleted accidentally.
 
 ## Checks
 
