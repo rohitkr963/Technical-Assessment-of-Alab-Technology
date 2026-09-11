@@ -1,0 +1,9 @@
+{
+  "info": { "name": "Alab Catalog API", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:5000/api" }],
+  "item": [
+    { "name": "List categories", "request": { "method": "GET", "url": "{{baseUrl}}/categories" } },
+    { "name": "Create category", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Audio\",\n  \"description\": \"Sound and listening products\"\n}" }, "url": "{{baseUrl}}/categories" } },
+    { "name": "List products", "request": { "method": "GET", "url": "{{baseUrl}}/products" } }
+  ]
+}
