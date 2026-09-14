@@ -3,6 +3,12 @@ export function notFound(req, res) {
 }
 
 export function errorHandler(error, req, res, next) {
+  if (error.name === 'MulterError' || error.message === 'Only JPG, JPEG, PNG, and WEBP images are allowed') {
+    const message = error.code === 'LIMIT_FILE_SIZE'
+      ? 'Image must be smaller than 5 MB'
+      : error.message;
+    return res.status(400).json({ success: false, message });
+  }
   if (error.code === 11000) {
     const field = Object.keys(error.keyPattern || {})[0] || 'field';
     return res.status(409).json({ success: false, message: `${field} already exists` });

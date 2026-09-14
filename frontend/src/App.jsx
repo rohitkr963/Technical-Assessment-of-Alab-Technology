@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import {
   Archive, ArrowUpRight, BarChart3, Check, CirclePlus, Edit3,
   ImagePlus, LayoutGrid, MoreHorizontal, Package, PanelLeft, Search,
-  Settings2, Tag, Trash2, X
+  RefreshCw, Settings2, Tag, Trash2, X
 } from 'lucide-react';
 import { api } from './services/api';
 
@@ -158,7 +158,7 @@ export default function App() {
 
       {showingProducts ? <>
         <Stats stats={stats} />
-        <section className="toolbar"><div className="search-box"><Search size={17} /><input placeholder="Search by product, SKU, or brand..." value={search} onChange={(event) => setSearch(event.target.value)} /></div><select value={status} onChange={(event) => setStatus(event.target.value)}><option>All</option><option>Active</option><option>Inactive</option></select></section>
+        <section className="toolbar"><div className="search-box"><Search size={17} /><input placeholder="Search by product, SKU, or brand..." value={search} onChange={(event) => setSearch(event.target.value)} /></div><select value={status} onChange={(event) => setStatus(event.target.value)}><option>All</option><option>Active</option><option>Inactive</option></select><button className="filter-button" type="button" onClick={loadCatalog} disabled={loading} title="Refresh catalog"><RefreshCw size={16} className={loading ? 'spin' : ''} /> Refresh</button></section>
         <ProductTable products={visibleProducts} loading={loading} onEdit={openProduct} onDelete={(item) => remove('product', item)} onStatus={(item) => changeStatus('product', item)} onView={(item) => setDialog({ type: 'detail', item })} />
       </> : <CategoryTable categories={categories} loading={loading} onEdit={openCategory} onDelete={(item) => remove('category', item)} onStatus={(item) => changeStatus('category', item)} />}
     </main>
