@@ -17,6 +17,8 @@ npm run dev
 
 Open `http://localhost:5173`. The REST API runs at `http://localhost:5000/api`.
 
+Check that the API is available with `GET http://localhost:5000/api/health`.
+
 ## API
 
 - `GET|POST /api/categories`
@@ -51,3 +53,5 @@ The frontend is intentionally small for this assessment: API calls stay in `serv
 npm test --prefix backend
 npm run build --prefix frontend
 ```
+
+The project does not require a Postman collection; the API can be exercised directly from the frontend or any HTTP client.
